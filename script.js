@@ -11,8 +11,8 @@ let player = Sprite({
     width: 10,
     height: 10,
     color: 'red',
-    dx: 6,
-    dy: 6,
+    dx: 2,
+    dy: 2,
     
     update() {
         this.x += this.dx;
