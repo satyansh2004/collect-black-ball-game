@@ -2,7 +2,7 @@ import { init, Sprite, GameLoop, initKeys, keyPressed } from 'kontra';
 
 let { canvas } = init('game');
 let scorecard = document.getElementById("yourscore");
-let score = 24;
+let score = 0;
 initKeys();
 
 let player = Sprite({
