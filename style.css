@@ -21,10 +21,10 @@ canvas#game {
     justify-content: center;
     align-items: center;
 }
-#yourscore {
+/* #yourscore {
     text-align: center;
     color: #f1f1ff
-}
+} */
 
 #foot {
     text-align: center;
@@ -37,4 +37,14 @@ canvas#game {
     position: fixed;
     bottom: 0;
     left: 0;
+}
+
+#timeScore {
+    display: flex;
+    text-align: center;
+    color: #f1f1ff;
+    justify-content: center;
+    justify-content: space-around;
+    width: 50%;
+    margin: 0 auto;
 }

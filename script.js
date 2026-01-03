@@ -2,7 +2,9 @@ import { init, Sprite, GameLoop, initKeys, keyPressed } from 'kontra';
 
 let { canvas } = init('game');
 let scorecard = document.getElementById("yourscore");
+let timer = document.getElementById("timing");
 let score = 0;
+
 initKeys();
 
 let player = Sprite({
@@ -50,6 +52,7 @@ let player = Sprite({
             this.y += this.dy;
             this.dy = Math.abs(this.dy);
         }
+        timingFun()
     },
 
     render() {
@@ -87,7 +90,7 @@ let target = Sprite({
                 player.dx += 1;
                 player.dy += 1;
             }
-            
+
         }
     },
 
@@ -121,7 +124,7 @@ let bonusTarget = Sprite({
     }
 });
 
-GameLoop({
+let loop = GameLoop({
     update() {
         player.update();
         target.update();
@@ -138,4 +141,30 @@ GameLoop({
             bonusTarget.render();
         }
     }
-}).start();
+})
+
+
+let time = Number(prompt("Enter Time"));
+let intervalId = null;
+
+function timingFun() {
+        if (intervalId !== null) return;
+        
+        intervalId = setInterval(() => {
+            loop.start();
+            timer.innerHTML = `Time: ${time}`
+
+            if (time === 0) {
+                clearInterval(intervalId);
+                intervalId = null;
+                loop.stop();
+                return;
+            }
+
+
+            console.log(time)
+            time--;
+
+        }, 1000)
+}
+timingFun()
